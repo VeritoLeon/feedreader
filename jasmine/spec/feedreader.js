@@ -13,12 +13,9 @@ $(function() {
      * the allFeeds variable in our application.
      */
     describe('RSS Feeds', function() {
-        /* This is our first test - it tests to make sure that the
+        /* This tests to make sure that the
          * allFeeds variable has been defined and that it is not
-         * empty. Experiment with this before you get started on
-         * the rest of this project. What happens when you change
-         * allFeeds in app.js to be an empty array and refresh the
-         * page?
+         * empty.
          */
         it('are defined', function() {
             expect(allFeeds).toBeDefined();
@@ -26,7 +23,7 @@ $(function() {
         });
 
 
-        /* Test that loops through each feed in the allFeeds object
+        /* This loops through each feed in the allFeeds object
          * and ensures it has a URL defined and that the URL is not
          * empty.
          */
@@ -38,7 +35,7 @@ $(function() {
             }
         });
 
-        /* Test that loops through each feed in the allFeeds object
+        /* This loops through each feed in the allFeeds object
          * and ensures it has a name defined and that the name is
          * not empty.
          */
@@ -55,7 +52,7 @@ $(function() {
      * the '.menu hidden' element of our application.
      */
     describe('The menu', function() {
-        /* Test that ensures the menu element is hidden by default.
+        /* This ensures the menu element is hidden by default.
          */
          it('is hidden by default', function() {
             var bodyClass = $( 'body' ).attr('class'),
@@ -68,7 +65,7 @@ $(function() {
             expect(position).toBe(-192); 
          });
 
-         /* Test that ensures the menu changes visibility when the
+         /* This ensures ensures the menu changes visibility when the
           * menu icon is clicked.
           * This test has two expectations: does the menu display when
           * clicked and does it hide when clicked again.
@@ -96,7 +93,7 @@ $(function() {
             });
         });
 
-        /* Test that ensures when the loadFeed function is called and
+        /* This ensures  when the loadFeed function is called and
          * completes its work, there is at least a single .entry element
          * within the .feed container.
          */
