@@ -60,9 +60,20 @@ $(function() {
          * hiding/showing of the menu element.
          */
          it('is hidden by default', function() {
+            var bodyClass = $( 'body' ).attr('class');,
+                transform = $( '.menu' ).css( 'transform' ),
+                // This gets the values of the matrix
+                values = transform.split('(')[1],
+                values = values.split(')')[0],
+                values = values.split(','),
+                // Get the 'translate in x' value and turn it into an int
+                position = parseInt(values[4].trim());
 
+            expect(bodyClass).toBe('menu-hidden');
+            expect(transform).toBeDefined();
+            expect(position).toBe(-192); //This means that .menu is off-canvas
          });
-         
+
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
