@@ -60,14 +60,9 @@ $(function() {
          * hiding/showing of the menu element.
          */
          it('is hidden by default', function() {
-            var bodyClass = $( 'body' ).attr('class');,
+            var bodyClass = $( 'body' ).attr('class'),
                 transform = $( '.menu' ).css( 'transform' ),
-                // This gets the values of the matrix
-                values = transform.split('(')[1],
-                values = values.split(')')[0],
-                values = values.split(','),
-                // Get the 'translate in x' value and turn it into an int
-                position = parseInt(values[4].trim());
+                position = getTranslateX(transform);
 
             expect(bodyClass).toBe('menu-hidden');
             expect(transform).toBeDefined();
@@ -80,7 +75,14 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
          it('changes visibility when clicked', function() {
+            var body = $( 'body' );
+
+            $( '.menu-icon-link' ).click();
+            expect(body.attr('class')).not.toBe('menu-hidden');
             
+
+            $( '.menu-icon-link' ).click();
+            expect(body.attr('class')).toBe('menu-hidden');
          });
     });
 
@@ -103,3 +105,17 @@ $(function() {
          */
     });
 }());
+
+function getMatrix (transformValue) {
+    // transform.split('(')[1].split(')')[0].split(',') sometimes caused errors
+    var values = transformValue.split('(')[1],
+        values = values.split(')')[0],
+        values = values.split(',');
+    return values;
+}
+
+function getTranslateX (transformValue) {
+    var matrix = getMatrix(transformValue),
+        xVal = matrix[4].trim();
+    return parseInt(xVal);
+}
