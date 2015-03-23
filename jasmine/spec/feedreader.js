@@ -31,12 +31,18 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-
+        it('URL is defined', function() {
+            for (var i = allFeeds.length - 1; i >= 0; i--) {
+                expect(allFeeds[i].url).toBeTruthy();
+                expect(allFeeds[i].url).not.toMatch(/\s/);
+            };
+        });
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+        it('Name is defined', function() {});
     });
 
 
