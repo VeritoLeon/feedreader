@@ -106,6 +106,16 @@ $(function() {
     });
 }());
 
+///
+/// Helper functions
+///
+
+/**
+ * Transform the string of the matrix of 'transform'
+ * (in the form "matrix(a, c, b, d, tx, ty)") to an array.
+ * @param  String transformValue "matrix(a, c, b, d, tx, ty)"
+ * @return Array                in the following format: [a, c, b, d, tx, ty]
+ */
 function getMatrix (transformValue) {
     // transform.split('(')[1].split(')')[0].split(',') sometimes caused errors
     var values = transformValue.split('(')[1],
@@ -114,6 +124,12 @@ function getMatrix (transformValue) {
     return values;
 }
 
+/**
+ * Gets the tx value of the string "matrix(a, c, b, d, tx, ty)".
+ * "tx" represents the translation of the element in the x axis.
+ * @param  Array transformValue "matrix(a, c, b, d, tx, ty)"
+ * @return number                tx (Translate X)
+ */
 function getTranslateX (transformValue) {
     var matrix = getMatrix(transformValue),
         xVal = matrix[4].trim();
