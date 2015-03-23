@@ -26,9 +26,9 @@ $(function() {
         });
 
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a URL defined
-         * and that the URL is not empty.
+        /* Test that loops through each feed in the allFeeds object
+         * and ensures it has a URL defined and that the URL is not
+         * empty.
          */
         it('URL is defined', function() {
             for (var i = allFeeds.length - 1; i >= 0; i--) {
@@ -38,9 +38,9 @@ $(function() {
             }
         });
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a name defined
-         * and that the name is not empty.
+        /* Test that loops through each feed in the allFeeds object
+         * and ensures it has a name defined and that the name is
+         * not empty.
          */
         it('Name is defined', function() {
             for (var i = allFeeds.length - 1; i >= 0; i--) {
@@ -51,13 +51,11 @@ $(function() {
         });
     });
 
-
-    /* TODO: Write a new test suite named "The menu" */
+    /* This suite is all about the menu,
+     * the '.menu hidden' element of our application.
+     */
     describe('The menu', function() {
-        /* TODO: Write a test that ensures the menu element is
-         * hidden by default. You'll have to analyze the HTML and
-         * the CSS to determine how we're performing the
-         * hiding/showing of the menu element.
+        /* Test that ensures the menu element is hidden by default.
          */
          it('is hidden by default', function() {
             var bodyClass = $( 'body' ).attr('class'),
@@ -66,12 +64,13 @@ $(function() {
 
             expect(bodyClass).toBe('menu-hidden');
             expect(transform).toBeDefined();
-            expect(position).toBe(-192); //This means that .menu is off-canvas
+            //This means that .menu is off-canvas
+            expect(position).toBe(-192); 
          });
 
-         /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
+         /* Test that ensures the menu changes visibility when the
+          * menu icon is clicked.
+          * This test has two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
          it('changes visibility when clicked', function() {
@@ -86,8 +85,9 @@ $(function() {
          });
     });
 
-
-    /* TODO: Write a new test suite named "Initial Entries" */
+    /* This suite is all about the entries,
+     * the '.feed .entry' elements in our application.
+     */
     describe('Initial Entries', function() {
         
         beforeEach(function(done) {
@@ -96,11 +96,9 @@ $(function() {
             });
         });
 
-        /* TODO: Write a test that ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test wil require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
+        /* Test that ensures when the loadFeed function is called and
+         * completes its work, there is at least a single .entry element
+         * within the .feed container.
          */
         it('have at least one entry', function() {
             var entries = $( '.feed .entry' );
