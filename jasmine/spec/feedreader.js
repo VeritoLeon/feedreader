@@ -74,11 +74,11 @@ $(function() {
             var body = $( 'body' );
 
             $( '.menu-icon-link' ).click();
-            expect(body.attr('class')).not.toBe('menu-hidden');
+            expect($('.menu').is('.menu-hidden .menu')).toBe(false);
             
 
             $( '.menu-icon-link' ).click();
-            expect(body.attr('class')).toBe('menu-hidden');
+            expect($('.menu').is('.menu-hidden .menu')).toBe(true);
          });
     });
 
