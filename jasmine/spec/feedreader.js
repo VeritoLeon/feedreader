@@ -109,6 +109,7 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        }
     });
 }());
 
