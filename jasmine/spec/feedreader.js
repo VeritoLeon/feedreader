@@ -106,18 +106,50 @@ $(function() {
     /* This suite is all about the feed selection.
      */
     describe('New Feed Selection', function() {
-        /* This ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
+        var oldEntries, oldHeader;
+
+        /**
+         * Makes sure there are more than 1 feed in the reader, in order
+         * for the test cases in the suite to be accurate.
+         * Then, it loads the default values to compare against them in the
+         * test cases.
          */
-        it('loads content', function(done) {
-            var oldEntries;
-            loadFeed(allFeeds.length - 1, function() {
-                oldEntries = $( '.feed .entry' );
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                expect(allFeeds.length).toBeGreaterThan(1);
+                oldEntries = $( '.feed .entry' ).text();
+                oldHeader = $( '.header-title' ).text();
                 done();
             });
+        });
 
-            var newEntries = $( '.feed .entry' );
-            expect(oldEntries).not.toEqual(newEntries);
+        /* This ensures when a new feed is loaded
+         * by the loadFeed function that the content actually changes.
+         *
+         * Note: This test will only work if there is more than 1 feed.
+         * Otherwise, this will give a false positive
+         */
+        it('loads content', function(done) {
+            loadFeed(allFeeds.length - 1, function() {
+                 var newEntries = $( '.feed .entry' ).text();
+                expect(oldEntries).not.toEqual(newEntries);
+                done();
+            });
+        });
+
+        /* This ensures that when a new feed is loaded
+         * by the loadFeed function that the header changes accordingly
+         *
+         * Note: This test will only work if there is more than 1 feed.
+         * Otherwise, this will give a false positive
+         */
+        it('loads correct header', function(done) {
+            loadFeed(allFeeds.length - 1, function() {
+                var newHeader = $( '.header-title' ).text();
+                expect(oldHeader).not.toEqual(newHeader);
+                expect(allFeeds[allFeeds.length - 1].name).toEqual(newHeader);
+                done();
+            });
         });
     });
 }());
