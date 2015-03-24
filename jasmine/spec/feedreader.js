@@ -133,7 +133,7 @@ $(function() {
  * @return Array                in the following format: [a, c, b, d, tx, ty]
  */
 function getMatrix (transformValue) {
-    // transform.split('(')[1].split(')')[0].split(',') sometimes caused errors
+    // transformValue.split('(')[1].split(')')[0].split(',') sometimes caused errors
     var values = transformValue.split('(')[1],
         values = values.split(')')[0],
         values = values.split(',');
