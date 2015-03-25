@@ -190,9 +190,17 @@ $(function() {
             });
         });
 
+        /* This suite is all about font accesibility.
+        */
         describe('Fonts', function() {
+            /* This ensures that the font size for all elements is at least 16px
+             */
             it('are at least 16px', function() {
-
+                //Must be sure not to include jasmine reporter on the test, but to allow other elements to be added to the app
+                var textElements = $( "body" ).find( "*" ).not( '.jasmine_html-reporter' ).not( '.jasmine_html-reporter *' ).not('script').not('link');
+                for (var i = textElements.length - 1; i >= 0; i--) {
+                    expect($(textElements[i]).css('font-size').slice(0, -2)).toBeGreaterThan('15');
+                }
             });
         });
 
