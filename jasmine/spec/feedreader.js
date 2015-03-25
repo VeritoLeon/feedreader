@@ -72,6 +72,7 @@ $(function() {
             expect(transform).toBeDefined();
             //This means that .menu is off-canvas
             expect(position).toBe(-192); 
+            expect($('.menu').is('.menu-hidden .menu')).toBe(true);
          });
 
          /* This ensures the menu displays when
@@ -94,7 +95,7 @@ $(function() {
          /* This ensures the menu hides when clicked if the menu 
           *  is displayed.
           */
-         it('is hidden when clicked if displayed', function(done) {
+         it('hides when clicked if displayed', function(done) {
             var body = $( 'body' );
             $( '.menu-icon-link' ).click();
             $( '.menu-icon-link' ).click();
