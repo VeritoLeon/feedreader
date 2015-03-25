@@ -206,11 +206,15 @@ $(function() {
 
 
         describe('Focus', function() {
-            it('is set on the first entry when loaded', function() {
+            it('is set on menu button when loaded', function() {
                 
             });
 
-            it('is set on the first feed when menu is displayed', function() {
+            it('is set on first entry after tab', function() {
+                
+            });
+
+            it('is set on the first feed after tab when menu is displayed', function() {
                 
             });
         });
