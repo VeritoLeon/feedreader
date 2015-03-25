@@ -212,15 +212,20 @@ $(function() {
             });
         });
 
+        /* This suite is all about menu accesibility.
+        */
         describe('Menu', function() {
             // Since it's an empty link, there needs to be a way for
             // the screen reader to know what it is when focused in it.
             it('button contains title', function() {
-                
+                var button = $( ".menu-icon-link" );
+                expect(button.attr('title')).toBeDefined();
+                expect(button.attr('title')).not.toMatch(/^\s+$|^$/gi); //empty spaces;
             });
         });
 
-
+        /* This suite is all about the focusable items.
+        */
         describe('Focus', function() {
             it('is set on menu button when loaded', function() {
                 
