@@ -128,7 +128,7 @@ $(function() {
          * within the .feed container.
          */
         it('have at least one entry', function() {
-            var entries = $( '.feed .entry' );
+            var entries = $( '.feed .entry-link' );
             expect(entries.length).toBeGreaterThan(0);
         });
     });
@@ -179,6 +179,39 @@ $(function() {
                 expect(oldHeader).not.toEqual(newHeader);
                 expect(allFeeds[allFeeds.length - 1].name).toEqual(newHeader);
                 done();
+            });
+        });
+    });
+
+    describe('Accessibility', function() {
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                done();
+            });
+        });
+
+        describe('Fonts', function() {
+            it('are at least 16px', function() {
+
+            });
+        });
+
+        describe('Menu', function() {
+            // Since it's an empty link, there needs to be a way for
+            // the screen reader to know what it is when focused in it.
+            it('button contains title', function() {
+                
+            });
+        });
+
+
+        describe('Focus', function() {
+            it('is set on the first entry when loaded', function() {
+                
+            });
+
+            it('is set on the first feed when menu is displayed', function() {
+                
             });
         });
     });
