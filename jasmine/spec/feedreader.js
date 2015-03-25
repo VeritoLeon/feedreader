@@ -82,6 +82,7 @@ $(function() {
             var body = $( 'body' );
 
             $( '.menu-icon-link' ).click();
+            // Give the menu time to hide
             setTimeout(function () {
                 var transform = $( '.menu' ).css( 'transform' ),
                     position = getTranslateX(transform);
@@ -100,6 +101,7 @@ $(function() {
             $( '.menu-icon-link' ).click();
             $( '.menu-icon-link' ).click();
             
+            // Give the menu time to hide
             setTimeout(function () {
                 var transform = $( '.menu' ).css( 'transform' ),
                     position = getTranslateX(transform);
@@ -117,6 +119,9 @@ $(function() {
      */
     describe('Initial Entries', function() {
         
+        /**
+         * Waits for loadFeed to complete its work
+         */
         beforeEach(function(done) {
             loadFeed(0, function() {
                 done();
@@ -184,6 +189,9 @@ $(function() {
     });
 
     describe('Accessibility', function() {
+        /**
+         * Waits for app to finish loading
+         */
         beforeEach(function(done) {
             loadFeed(0, function() {
                 done();
