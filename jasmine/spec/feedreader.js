@@ -137,7 +137,7 @@ $(function() {
             expect(entries.length).toBeGreaterThan(0);
         });
 
-        /* This ensures that every of the initial has a non empty href.
+        /* This ensures that every of the initial entries has a non empty href.
          * Note: this does not ensure that the provided link is valid.
          */
         it('link somewhere', function() {
