@@ -52,6 +52,15 @@ $(function() {
      * the '.menu hidden' element of our application.
      */
     describe('The menu', function() {
+        
+        /* This restores our menu to its intended default state
+         *  (hidden) without influencing the 'is hidden by default'
+         *  test case.
+         */
+        afterEach(function () {
+           $('body').addClass('menu-hidden');
+        });
+
         /* This ensures the menu element is hidden by default.
          */
          it('is hidden by default', function() {
@@ -65,20 +74,40 @@ $(function() {
             expect(position).toBe(-192); 
          });
 
-         /* This ensures ensures the menu changes visibility when the
-          * menu icon is clicked.
-          * This test has two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
+         /* This ensures the menu displays when
+          * clicked.
           */
-         it('changes visibility when clicked', function() {
+         it('displays when clicked if hidden', function(done) {
             var body = $( 'body' );
 
             $( '.menu-icon-link' ).click();
-            expect($('.menu').is('.menu-hidden .menu')).toBe(false);
-            
+            setTimeout(function () {
+                var transform = $( '.menu' ).css( 'transform' ),
+                    position = getTranslateX(transform);
+                    
+                expect(position).toBeGreaterThan(-1);
+                expect($('.menu').is('.menu-hidden .menu')).toBe(false);
+                done();
+            }, 500);
+         });
 
+         /* This ensures the menu hides when clicked if the menu 
+          *  is displayed.
+          */
+         it('is hidden when clicked if displayed', function(done) {
+            var body = $( 'body' );
             $( '.menu-icon-link' ).click();
-            expect($('.menu').is('.menu-hidden .menu')).toBe(true);
+            $( '.menu-icon-link' ).click();
+            
+            setTimeout(function () {
+                var transform = $( '.menu' ).css( 'transform' ),
+                    position = getTranslateX(transform);
+
+                //This means that .menu is off-canvas
+                expect(position).toBe(-192);
+                expect($('.menu').is('.menu-hidden .menu')).toBe(true);
+                done();
+            }, 500);
          });
     });
 
