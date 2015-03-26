@@ -1,6 +1,6 @@
 # Feedreader tests - Project 6 of Front End Nanodegree
 So, with this project I got introduced to Jasmine and got to play a bit with it.
-I got an application that listed the last entries of some predefined feeds. There were some test specifications that I needed to implement, with the liberty of write additional ones.
+I got an application that listed the last entries of some predefined feeds. There were some test specifications that I needed to implement, with the freedom to write additional ones.
 
 ###Disclaimer
 While some additional tests were added, this project should not be seen as an example of acceptable test coverage for production code. This project seeks to illustrate to me (and hopefully someone else checking out the project) the structure and functionality of Jasmine test suites.
