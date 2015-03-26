@@ -14,21 +14,27 @@ _Clicking on the test suite's header will link to the execution of the test_
 * **are defined** — Checks that the allFeeds variable is declared and has a value.
 * **URL is defined** — Checks that every object inside allFeeds contains the url key, and it has a value.
 * **Name is defined** — Checks that every object inside allFeeds contains the name key, and it has a value.
+
 ###<a href="">The menu</a>
 * **is hidden by default** — Checks that when the page loads, the menu containing the available feeds doesn't appear on the screen.
 * **displays when clicked if hidden** — Checks that when clicking the hamburger icon, the menu is visible to the user.
 * **hides when clicked if displayed** — Checks that when clicking the hamburger icon when the menu is visible, will hide it.
 
 The last two test specifications used to be in a single specification, but it seemed that I was testing two different things in a single test, so to try to adhere to the _unit_ of unit testing, it was divided.
+
 ###<a href="">Initial Entries
 * **have at least one entry** — Checks that the entries are being shown in the app.
 * **link somewhere** — Checks that the anchor link associated with each entry has a reference (_additional test_).
+
 ###<a href="">New Feed Selection</a>
 * **loads content** — Checks that selecting a different feed will load different entries, asociated with the selected feed.
 * **loads correct header** — Checks that selecting a different feed will load a different header, asociated with the selected feed (_additional test_).
+
 ###<a href="">Accessibility</a>
+
 ####<a href="">Fonts</a>
 * **are at least 16px** — Checks that the font-size property of all elements of index.html holds a value of at least 16px (_additional test_).
+
 ####<a href="">Menu</a>
 * **button contains title** — Checks that the hamburger icon contains a non-empty title attribute, so a screen reader can know what is it linking to. This test initially failed, so index.html was modified to include this (_additional test_).
 
