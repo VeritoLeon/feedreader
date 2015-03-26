@@ -232,22 +232,6 @@ $(function() {
                 expect(button.attr('title')).not.toMatch(/^\s+$|^$/gi); //empty spaces;
             });
         });
-
-        /* This suite is all about the focusable items.
-        */
-        describe('Focus', function() {
-            it('is set on menu button when loaded', function() {
-                
-            });
-
-            it('is set on first entry after tab', function() {
-                
-            });
-
-            it('is set on the first feed after tab when menu is displayed', function() {
-                
-            });
-        });
     });
 }());
 
